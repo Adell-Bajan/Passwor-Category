@@ -1,0 +1,35 @@
+<%- include('header') %>
+	<div class="container"><div class="table2">	
+	<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h2 class="text-center mb-3"><i class="fa fa-plus"></i></a><b>Add New Password Category</h2>
+			 <% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error) { %>
+        <div class="alert text-danger alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+        </div>
+        <% }); %>
+            <% } %>
+			 <% if(success_msg !='') { %>
+			 		 <div class="alert text-success alert-dismissible fade show" role="alert">
+                        <%= success_msg %>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+                    </div>
+                    <% } %>
+            <form action="/add-new-category" method="POST">
+                <div class="form-group">
+                    <label for="name">Category Name :</label>
+                    <input type="name" id="name" name="passwordCategory" class="form-control" placeholder="Enter Your Password Category Name">
+                </div>
+                <button type="submit" class="btn btn-success btn-block"><b>Add Category</b></button>
+                </form>
+                <p class="lead mt-4"><a href="/passwordCategory">View All Categories</a></p>
+        </div>
+    </div></div><br><br><br>
+<%- include('footer') %>
